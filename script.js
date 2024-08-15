@@ -1,75 +1,72 @@
 const questions = [
     {
         sentence: "She was tired, ____ she kept working.",
-        options: ["but", "however", "although", "despite", "nevertheless"],
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "but"
     },
     {
         sentence: "I wanted to join them; ____, I had to finish my work first.",
-        options: ["although", "but", "despite", "however", "on the other hand"],
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "however"
     },
     {
         sentence: "He went out ____ it was raining.",
-        options: ["despite", "although", "but", "however", "yet"],
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "although"
     },
     {
-        sentence: "He tried hard, ____ he didn't succeed.",
-        options: ["although", "but", "despite", "however", "on the other hand"],
+        sentence: "The weather was sunny. ____, the beach was crowded.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
+        correct: "on the other hand"
+    },
+    {
+        sentence: "She prefers coffee; ____ he likes tea.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
+        correct: "in contrast"
+    },
+    {
+        sentence: "I am allergic to cats; ____, I adopted a kitten.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "but"
     },
     {
-        sentence: "The movie was very entertaining; ____, it was too long.",
-        options: ["on the other hand", "despite", "but", "although", "nevertheless"],
-        correct: "on the other hand"
-    },
-    {
-        sentence: "The project was difficult; ____, we managed to finish it on time.",
-        options: ["although", "but", "even though", "however", "nevertheless"],
+        sentence: "The restaurant was expensive; ____, the food was not very good.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "however"
     },
     {
-        sentence: "She agreed to help, ____ she was very busy.",
-        options: ["despite", "but", "although", "however", "yet"],
-        correct: "although"
+        sentence: "She studied hard for the exam, ____ she passed with flying colors.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
+        correct: "and"
     },
     {
-        sentence: "I was exhausted; ____, I stayed up late to finish the book.",
-        options: ["nevertheless", "but", "despite", "although", "however"],
-        correct: "nevertheless"
-    },
-    {
-        sentence: "The weather was cold; ____, we decided to go hiking.",
-        options: ["despite", "but", "although", "however", "yet"],
-        correct: "despite"
-    },
-    {
-        sentence: "She is very talented; ____, she is quite modest.",
-        options: ["but", "on the other hand", "even though", "however", "nevertheless"],
+        sentence: "They enjoy hiking in the mountains, ____ their friends prefer relaxing at the beach.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "on the other hand"
     },
     {
-        sentence: "He didn't enjoy the meal; ____, he was polite about it.",
-        options: ["however", "but", "although", "despite", "yet"],
-        correct: "however"
+        sentence: "The company is growing rapidly, ____ its competitors are struggling.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
+        correct: "in contrast"
     },
     {
-        sentence: "The team won the match, ____ it was a close game.",
-        options: ["although", "despite", "nevertheless", "but", "yet"],
-        correct: "although"
+        sentence: "The book was long; ____, it was very engaging.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
+        correct: "but"
     },
     {
-        sentence: "She missed the bus; ____, she arrived at work on time.",
-        options: ["despite", "but", "even though", "however", "yet"],
-        correct: "even though"
-    },
-    {
-        sentence: "The concert was great; ____, the venue was uncomfortable.",
-        options: ["on the other hand", "however", "but", "despite", "although"],
+        sentence: "She enjoys cooking at home; ____, she often dines out with friends.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
         correct: "on the other hand"
+    },
+    {
+        sentence: "He is an excellent student, ____ his grades are not always perfect.",
+        options: ["but", "however", "although", "on the other hand", "in contrast"],
+        correct: "although"
     }
+    // Adicione mais perguntas conforme necessário
 ];
+
 
 let currentQuestionIndex = 0;
 let correctAnswersCount = 0; // Variável para contar respostas corretas
@@ -107,6 +104,9 @@ function checkAnswer(selectedOption) {
 
 function nextQuestion() {
     currentQuestionIndex++;
+    document.getElementById('result').textContent = '';
+    document.getElementById('result').className = ''; // Reseta a cor
+    document.getElementById('next-btn').style.display = 'none';
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
     } else {
